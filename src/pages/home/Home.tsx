@@ -1,12 +1,14 @@
 import styled from "styled-components";
+import Logo from "../../components/Logo/Logo";
 
 export default function Home() {
     return (
-        <div>
-            <h1>Home</h1>
-            <p>
-                This is the home page.
-            </p>
-        </div>
+        <Container>
+            <Logo />
+        </Container>
     );
 }
+
+const Container = styled.div`
+
+`;
