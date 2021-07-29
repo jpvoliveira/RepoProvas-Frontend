@@ -5,20 +5,30 @@ export default function TopOption(props: { text: string, to: string, children: J
     const { text, to, children } = props;
 
     return (
-        <Container>
-            <Link to={to}>
+        <Link to={to}>
+            <Container>
                 {children}
                 <p> {text} </p>
-            </Link>
-        </Container>
+            </Container>
+        </Link>
     )
 }
 
 const Container = styled.div`
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    font-size: 28px;
+
+    :hover{
+        transform: scale(1.1);
+        color: greenyellow;
+    }
     p{
-        cursor: pointer;
-        :hover{
-            transform: scale(1.2);
-        }
+        margin-left: 10px;
+        font-size: 16px;
     }
 `;
