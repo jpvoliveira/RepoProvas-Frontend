@@ -15,6 +15,7 @@ const Container = styled.div`
     align-items: center;
     font-family: 'Lato', sans-serif;
     font-size: 62px;
+    cursor: default;
     > strong span{
         color: rgba(16,41,120,1);
         font-weight: normal;
