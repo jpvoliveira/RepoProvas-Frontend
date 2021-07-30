@@ -23,4 +23,9 @@ const ButtonContainer = styled.button`
     outline: none;
     border: none;
     border-radius: 3px;
+    cursor: pointer;
+    :hover {
+        transform: scale(1.1);
+        color: greenyellow;
+    }
 `

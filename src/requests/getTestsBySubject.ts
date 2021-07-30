@@ -1,14 +1,29 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
 
-export default function useSubjectInfos(id: number) {
+interface TestsBySubject {
+    "id": number,
+    "name": string,
+    "categoryId": number,
+    "teacherId": number,
+    "subjectId": number,
+    "courseId": number,
+    "pdf": string,
+    "teacher": {
+        "id": number,
+        "name": string,
+        "courseId": number
+    }
+};
+
+export default function useGetTestsBySubject(id: number) {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
-    const [data, setData] = useState<any[]>([]);
+    const [data, setData] = useState<TestsBySubject[]>([]);
 
     function fetchData() {
         setLoading(true);
-        axios.get("http://localhost:4000/subject/" + id)
+        axios.get("http://localhost:4000/tests/subject/" + id)
             .then(onSuccess)
             .catch(onError);
     }
