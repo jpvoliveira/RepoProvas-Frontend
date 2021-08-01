@@ -1,14 +1,16 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
+import apiBaseUrl from "../apiBaseUrl";
+import ICourse from "../interfaces/ICourse";
 
 export default function useGetCourses() {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
-    const [data, setData] = useState<{ id: number, name: string }[]>([]);
+    const [data, setData] = useState<ICourse[]>([]);
 
     function fetchData() {
         setLoading(true);
-        axios.get("http://localhost:4000/courses")
+        axios.get(apiBaseUrl + "/courses")
             .then(onSuccess)
             .catch(onError);
     }

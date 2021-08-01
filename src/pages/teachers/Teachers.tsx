@@ -1,29 +1,28 @@
-import styled from "styled-components";
-import Logo from "../../components/Logo/Logo";
-import PageContainer from "../../assets/styles/PageContainer";
 import { useParams } from "react-router-dom";
-import TeachersList from "./TeachersList";
+import { useEffect } from "react";
+import useGetCourseTeachers from "../../requests/getCourseTeachers";
+import TeacherOption from "./TeacherOption";
+import PageSetup from "../../components/PageSetup";
 
-export default function Teachers() {
+export default function Subjects() {
 
     const { courseId } = useParams<{ courseId: string }>();
+    const { loading, error, data, fetchData } = useGetCourseTeachers(Number(courseId));
+
+    useEffect(() => {
+        fetchData();
+    }, [courseId])
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error!</div>;
+
+    const teachers = data[0]?.teachers;
 
     return (
-        <PageContainer>
-            <Logo />
-            <Container>
-                <TeachersList />
-            </Container>
-        </PageContainer>
+        <PageSetup>
+            <>
+                {teachers?.map(teacher => <TeacherOption key={teacher.id} data={teacher} />)}
+            </>
+        </PageSetup>
     );
 }
-
-const Container = styled.div`
-    > * {
-        margin: 20px;
-    }
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`

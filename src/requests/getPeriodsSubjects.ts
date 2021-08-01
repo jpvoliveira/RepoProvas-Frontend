@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
+import apiBaseUrl from "../apiBaseUrl";
 
 interface PeriodsSubjectsList {
     id: number,
@@ -19,7 +20,7 @@ export default function useGetPeriodsSubjets(id: number) {
 
     function fetchData() {
         setLoading(true);
-        axios.get("http://localhost:4000/periods")
+        axios.get(apiBaseUrl + "/periods")
             .then(onSuccess)
             .catch(onError);
     }

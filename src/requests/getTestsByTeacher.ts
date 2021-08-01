@@ -3,14 +3,14 @@ import { useState } from "react";
 import apiBaseUrl from "../apiBaseUrl";
 import ITest from "../interfaces/ITest";
 
-export default function useGetTestsBySubject(id: number) {
+export default function useGetTestsByTeacher(id: number) {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
     const [data, setData] = useState<ITest[]>([]);
 
     function fetchData() {
         setLoading(true);
-        axios.get(apiBaseUrl + "/tests/subject/" + id)
+        axios.get(apiBaseUrl + "/tests/teacher/" + id)
             .then(onSuccess)
             .catch(onError);
     }

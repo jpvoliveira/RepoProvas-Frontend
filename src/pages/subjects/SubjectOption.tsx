@@ -1,14 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import ISubject from "../../interfaces/ISubject";
 
-interface Subject {
-    id: number;
-    name: string;
-    periodId: number;
-    courseId: number;
-}
-
-export default function SubjectOption(props: { key: number, data: Subject }) {
+export default function SubjectOption(props: { key: number, data: ISubject }) {
 
     const { data } = props;
 

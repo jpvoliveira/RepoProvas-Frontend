@@ -1,20 +1,9 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import IPeriodsSubjects from "../../interfaces/IPeriodSubjects";
 import SubjectOption from "./SubjectOption";
 
-
-interface PeriodSubjects {
-    id: number,
-    name: string,
-    subjects: {
-        id: number,
-        name: string,
-        periodId: number,
-        courseId: number
-    }[]
-};
-
-export default function SubjectsList(props: { data: PeriodSubjects }) {
+export default function SubjectsList(props: { data: IPeriodsSubjects }) {
 
     const { data } = props;
     const { courseId } = useParams<{ courseId: string }>();

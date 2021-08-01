@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import SubjectsList from "./SubjectsList";
 import { useEffect } from "react";
 import useGetPeriodsSubjets from "../../requests/getPeriodsSubjects";
+import PageSetup from "../../components/PageSetup";
 
 export default function Subjects() {
 
@@ -19,18 +20,10 @@ export default function Subjects() {
     if (error) return <div>Error!</div>;
 
     return (
-        <PageContainer>
-            <Logo />
-            <Container>
+        <PageSetup>
+            <>
                 {data.map(period => period.subjects.length === 0 ? null : <SubjectsList key={period.id} data={period} />)}
-            </Container>
-        </PageContainer>
+            </>
+        </PageSetup>
     );
 }
-
-const Container = styled.div`
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`

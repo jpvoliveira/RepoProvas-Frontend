@@ -1,29 +1,16 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
-
-interface CoursesSubjectsList {
-    id: number,
-    name: string,
-    subjects: {
-        id: number,
-        name: string,
-        periodId: number,
-        courseId: number,
-        period: {
-            id: number,
-            name: string,
-        }
-    }[]
-};
+import apiBaseUrl from "../apiBaseUrl";
+import ICourseSubjects from "../interfaces/ICourseSubjects";
 
 export default function useGetCourseSubjets(id: number) {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
-    const [data, setData] = useState<CoursesSubjectsList[]>([]);
+    const [data, setData] = useState<ICourseSubjects[]>([]);
 
     function fetchData() {
         setLoading(true);
-        axios.get("http://localhost:4000/courses/" + id + "/subjects")
+        axios.get(apiBaseUrl + "/courses/" + id + "/subjects")
             .then(onSuccess)
             .catch(onError);
     }

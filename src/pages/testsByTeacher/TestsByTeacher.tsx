@@ -1,18 +1,10 @@
-import styled from "styled-components";
-import PageContainer from "../../assets/styles/PageContainer";
-import Logo from "../../components/Logo/Logo";
+import PageSetup from "../../components/PageSetup";
+import TestsContainer from "./CategoriesList";
 
 export default function TestsByTeacher() {
     return (
-        <PageContainer>
-            <Logo />
-            <Container>
-
-            </Container>
-        </PageContainer>
+        <PageSetup>
+            <TestsContainer />
+        </PageSetup>
     )
 }
-
-const Container = styled.div`
-    
-`;

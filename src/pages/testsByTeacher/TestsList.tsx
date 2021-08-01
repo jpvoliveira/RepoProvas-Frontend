@@ -2,14 +2,14 @@ import styled from "styled-components";
 import ITest from "../../interfaces/ITest";
 import TestOption from "./TestOption";
 
-export default function TestsList(data: { title: string, testsBySubjectAndCategory: ITest[] }) {
+export default function TestsList(data: { title: string, testsByTeacherAndCategory: ITest[] }) {
 
-    const { testsBySubjectAndCategory, title } = data;
+    const { testsByTeacherAndCategory, title } = data;
 
     return (
         <Container>
             <strong>{title}</strong>
-            {testsBySubjectAndCategory.map(test => <TestOption key={test.id} test={test} />)}
+            {testsByTeacherAndCategory.map(test => <TestOption key={test.id} test={test} />)}
         </Container>
     )
 }

@@ -8,7 +8,7 @@ export default function TestOption(props: { key: number, test: ITest }) {
     return (
         <Container>
             <a href={test.pdf} target="_blank" rel="noreferrer" >
-                {test.name} do professor {test.teacher.name}
+                {test.name} da disciplina {test.subject.name}
             </a>
         </Container>
     )

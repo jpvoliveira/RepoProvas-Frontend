@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import { useEffect } from 'react';
-import useGetTestsBySubject from '../../requests/getTestsBySubject';
-import TestsList from './TestsList';
 import { useParams } from 'react-router-dom';
+import useGetTestsByTeacher from '../../requests/getTestsByTeacher';
+import TestsList from './TestsList';
 
-export default function CategoriesList() {
+export default function TestsContainer() {
 
-
-    const { subjectId } = useParams<{ subjectId: string }>();
-    const { loading, error, data, fetchData } = useGetTestsBySubject(Number(subjectId));
+    const { teacherId } = useParams<{ teacherId: string }>();
+    const { loading, error, data, fetchData } = useGetTestsByTeacher(Number(teacherId))
 
     useEffect(() => {
         fetchData();
@@ -25,15 +24,15 @@ export default function CategoriesList() {
 
     return (
         <Container>
-            <TestsList title="P1" testsBySubjectAndCategory={p1} />
+            <TestsList title="P1" testsByTeacherAndCategory={p1} />
             {p1.length === 0 && <p>Não há testes cadastrados para essa categoria.</p>}
-            <TestsList title="P2" testsBySubjectAndCategory={p2} />
+            <TestsList title="P2" testsByTeacherAndCategory={p2} />
             {p2.length === 0 && <p>Não há testes cadastrados para essa categoria.</p>}
-            <TestsList title="P3" testsBySubjectAndCategory={p3} />
+            <TestsList title="P3" testsByTeacherAndCategory={p3} />
             {p3.length === 0 && <p>Não há testes cadastrados para essa categoria.</p>}
-            <TestsList title="2ch" testsBySubjectAndCategory={ch2} />
+            <TestsList title="2ch" testsByTeacherAndCategory={ch2} />
             {ch2.length === 0 && <p>Não há testes cadastrados para essa categoria.</p>}
-            <TestsList title="Outras" testsBySubjectAndCategory={outras} />
+            <TestsList title="Outras" testsByTeacherAndCategory={outras} />
             {outras.length === 0 && <p>Não há testes cadastrados para essa categoria.</p>}
         </Container>
     );
