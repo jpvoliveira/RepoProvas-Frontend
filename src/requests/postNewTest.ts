@@ -4,7 +4,7 @@ import apiBaseUrl from "../apiBaseUrl";
 import INewTest from "../interfaces/INewTest";
 
 export default function usePostNewTest() {
-    const [loading, setLoading] = useState<boolean>(true);
+    const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<boolean>(false);
 
     function sendTest(test: INewTest) {
@@ -17,6 +17,7 @@ export default function usePostNewTest() {
     const onSuccess = (res: AxiosResponse) => {
         setError(false);
         setLoading(false);
+        alert("Teste enviado com sucesso!");
     };
 
     const onError = (error: AxiosError) => {

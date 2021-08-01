@@ -3,7 +3,7 @@ import { useState } from "react";
 import apiBaseUrl from "../apiBaseUrl";
 import ICourseSubjects from "../interfaces/ICourseSubjects";
 
-export default function useGetCourseSubjets(id: number) {
+export default function useGetCourseSubjects(id: number) {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
     const [data, setData] = useState<ICourseSubjects | undefined>(undefined);
