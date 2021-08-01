@@ -1,6 +1,3 @@
-import styled from "styled-components";
-import Logo from "../../components/Logo/Logo";
-import PageContainer from "../../assets/styles/PageContainer";
 import { useParams } from "react-router-dom";
 import SubjectsList from "./SubjectsList";
 import { useEffect } from "react";

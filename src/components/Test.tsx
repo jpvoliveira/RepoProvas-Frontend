@@ -1,9 +1,9 @@
-import { useState } from "react";
 import styled from "styled-components";
-import ITest from "../../interfaces/ITest";
+import { useState } from "react";
 import { IoOpenOutline } from "react-icons/io5";
+import ITest from "../interfaces/ITest";
 
-export default function TestOption(props: { key: number, test: ITest }) {
+export default function Test(props: { key: number, test: ITest, byTeacher: boolean }) {
 
     const { test } = props;
     const [showingPdf, setShowingPdf] = useState(false);
@@ -11,7 +11,7 @@ export default function TestOption(props: { key: number, test: ITest }) {
     return (
         <Container>
             <p onClick={() => setShowingPdf(!showingPdf)}>
-                {test.name} do professor {test.teacher.name}
+                {props.byTeacher ? `${test.name} da disciplina ${test.subject.name}` : `${test.name} do professor ${test.teacher.name}`}
             </p>
             {showingPdf &&
                 <div>
@@ -26,6 +26,7 @@ export default function TestOption(props: { key: number, test: ITest }) {
                 </div>
             }
         </Container>
+
     )
 }
 
@@ -38,6 +39,7 @@ const Container = styled.div`
         text-decoration: underline;
         margin: 5px;
         font-weight: 500;
+        cursor: pointer;
         :hover{
             transform: scale(1.05);
         }

@@ -4,6 +4,7 @@ import Button from "../../components/Button";
 import useGetCourses from "../../requests/getCourses";
 import { useEffect, useState } from "react";
 import PageSetup from "../../components/PageSetup";
+import styled from "styled-components";
 
 export default function Home() {
 
@@ -20,10 +21,16 @@ export default function Home() {
 
     return (
         <PageSetup>
-            <>
+            <Container>
                 <Button text="Escolher" to={`/course/${selectedOption}`} />
                 <Select options={data} loading={loading} error={error} selectedOption={selectedOption} handleChange={handleChange} />
-            </>
+            </Container>
         </PageSetup>
     );
 }
+
+const Container = styled.div`
+    > * {
+        margin: 15px;
+    }
+`;

@@ -19,12 +19,25 @@ export default function Select(data: { handleChange: React.ChangeEventHandler<HT
 
 const SelectContainer = styled.select`
     width: 180px;
-    height: 30px;
-    padding: 5px;
+    height: auto;
+    padding: 8px 4px;
     font-size: 14px;
     outline: none;
     border: none;
-    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
     border-radius: 7px;
-`
+
+    color: white;
+    font-weight: 600;
+    background: rgb(5,4,23);
+    background: linear-gradient(90deg, #151168 0%, #1f3da1 60%, #4403d1 100%);
+    box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.4);
+    cursor: pointer;
+
+    :hover{
+        transform: scale(1.02);
+    }
+    option{
+        color: black;
+    }
+`;
 

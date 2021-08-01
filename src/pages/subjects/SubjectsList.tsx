@@ -29,7 +29,7 @@ const Container = styled.div`
     .linha-horizontal{
         width: 300px;
         border: 1px solid rgba(0,0,0,0.4);
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 
     > strong {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
+import Test from "../../components/Test";
 import ITest from "../../interfaces/ITest";
-import TestOption from "./TestOption";
 
 export default function TestsList(data: { title: string, testsBySubjectAndCategory: ITest[] }) {
 
@@ -9,7 +9,7 @@ export default function TestsList(data: { title: string, testsBySubjectAndCatego
     return (
         <Container>
             <strong>{title}</strong>
-            {testsBySubjectAndCategory.map(test => <TestOption key={test.id} test={test} />)}
+            {testsBySubjectAndCategory.map(test => <Test key={test.id} test={test} byTeacher={false} />)}
         </Container>
     )
 }

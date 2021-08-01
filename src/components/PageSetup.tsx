@@ -15,9 +15,6 @@ export default function PageSetup({ children }: { children: React.ReactChild }) 
 }
 
 const Container = styled.div`
-    > * {
-        margin: 15px;
-    }
     margin-top: 10px;
     display: flex;
     flex-direction: column;

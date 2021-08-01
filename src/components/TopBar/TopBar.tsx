@@ -15,7 +15,7 @@ export default function Topbar() {
                 <TopOption to="/send-test" text="Enviar prova">
                     <IconSend />
                 </TopOption>
-                <TopOption to="/show-tests" text="Consultar provas">
+                <TopOption to="#" text="Em breve...">
                     <IconPaper />
                 </TopOption>
             </div>
