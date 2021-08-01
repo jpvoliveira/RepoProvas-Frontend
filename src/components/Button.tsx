@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 export default function Button(data: { to: string, text: string }) {
     return (
-        <Link to={data.to}>
-            <ButtonContainer type="submit">
+        <ButtonContainer type="submit">
+            <Link to={data.to}>
                 {data.text}
-            </ButtonContainer>
-        </Link>
+            </Link>
+        </ButtonContainer>
     )
 }
 

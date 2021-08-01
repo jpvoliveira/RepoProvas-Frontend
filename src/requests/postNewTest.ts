@@ -1,16 +1,15 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
 import apiBaseUrl from "../apiBaseUrl";
-import ICourseSubjects from "../interfaces/ICourseSubjects";
+import INewTest from "../interfaces/INewTest";
 
-export default function useGetCourseSubjets(id: number) {
+export default function usePostNewTest() {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
-    const [data, setData] = useState<ICourseSubjects | undefined>(undefined);
 
-    function fetchData() {
+    function sendTest(test: INewTest) {
         setLoading(true);
-        axios.get(apiBaseUrl + "/courses/" + id + "/subjects")
+        axios.post(apiBaseUrl + "/tests", test)
             .then(onSuccess)
             .catch(onError);
     }
@@ -18,7 +17,6 @@ export default function useGetCourseSubjets(id: number) {
     const onSuccess = (res: AxiosResponse) => {
         setError(false);
         setLoading(false);
-        setData(res.data);
     };
 
     const onError = (error: AxiosError) => {
@@ -27,5 +25,5 @@ export default function useGetCourseSubjets(id: number) {
         setError(true);
     };
 
-    return { loading, error, data, fetchData };
+    return { loading, error, sendTest };
 }

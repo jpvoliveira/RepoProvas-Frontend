@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export default function Select(data: { handleChange: React.ChangeEventHandler<HTMLSelectElement>, optionCourse: { value: number }, error: boolean, loading: boolean, props: { id: number, name: string }[] }) {
-    const { props, loading, error, optionCourse, handleChange } = data;
+export default function Select(data: { handleChange: React.ChangeEventHandler<HTMLSelectElement>, selectedOption: number, error: boolean, loading: boolean, options: { id: number, name: string }[] | null | undefined }) {
+    const { options, loading, error, selectedOption, handleChange } = data;
 
     if (loading) return <div> Loading ... </div>;
     if (error) return <div> Erro ao carregar cursos </div>;
 
     return (
-        <SelectContainer name="courses" form="course" value={optionCourse.value} onChange={handleChange}>
-            {props.map((p: { id: number, name: string }) => <option key={p.id} value={p.id} >{p.name}</option>)}
+        <SelectContainer name="form" form="form" value={selectedOption} onChange={handleChange}>
+            {options?.map((p: { id: number, name: string }) => <option key={p.id} value={p.id} >{p.name}</option>)}
         </SelectContainer>
     )
 }

@@ -1,22 +1,12 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
 import apiBaseUrl from "../apiBaseUrl";
-
-interface PeriodsSubjectsList {
-    id: number,
-    name: string,
-    subjects: {
-        id: number,
-        name: string,
-        periodId: number,
-        courseId: number
-    }[]
-};
+import IPeriodsSubjects from "../interfaces/IPeriodSubjects";
 
 export default function useGetPeriodsSubjets(id: number) {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
-    const [data, setData] = useState<PeriodsSubjectsList[]>([]);
+    const [data, setData] = useState<IPeriodsSubjects[]>([]);
 
     function fetchData() {
         setLoading(true);

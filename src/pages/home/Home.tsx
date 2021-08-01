@@ -8,21 +8,21 @@ import PageSetup from "../../components/PageSetup";
 export default function Home() {
 
     const { loading, error, data, fetchData } = useGetCourses();
-    const [optionCourse, setOption] = useState<{ value: number }>({ value: 1 });
+    const [selectedOption, setOption] = useState<number>(1);
 
     useEffect(() => {
         fetchData();
     }, []);
 
     function handleChange(e: any) {
-        setOption({ value: e.target.value })
+        setOption(e.target.value)
     }
 
     return (
         <PageSetup>
             <>
-                <Button text="Escolher" to={`/course/${optionCourse.value}`} />
-                <Select props={data} loading={loading} error={error} optionCourse={optionCourse} handleChange={handleChange} />
+                <Button text="Escolher" to={`/course/${selectedOption}`} />
+                <Select options={data} loading={loading} error={error} selectedOption={selectedOption} handleChange={handleChange} />
             </>
         </PageSetup>
     );

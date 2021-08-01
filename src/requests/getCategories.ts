@@ -1,16 +1,16 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
 import apiBaseUrl from "../apiBaseUrl";
-import ICourseSubjects from "../interfaces/ICourseSubjects";
+import ICategory from "../interfaces/ICategories";
 
-export default function useGetCourseSubjets(id: number) {
+export default function useGetCategories() {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
-    const [data, setData] = useState<ICourseSubjects | undefined>(undefined);
+    const [data, setData] = useState<ICategory[]>([]);
 
     function fetchData() {
         setLoading(true);
-        axios.get(apiBaseUrl + "/courses/" + id + "/subjects")
+        axios.get(apiBaseUrl + "/categories")
             .then(onSuccess)
             .catch(onError);
     }

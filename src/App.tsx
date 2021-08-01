@@ -10,6 +10,7 @@ import Teachers from "./pages/teachers/Teachers";
 import Subjects from "./pages/subjects/Subjects";
 import TestsBySubject from "./pages/testsBySubject/TestsBySubject";
 import TestsByTeacher from "./pages/testsByTeacher/TestsByTeacher";
+import SendTest from "./pages/sendTest/SendTest";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                 <Route exact path="/course/:courseId/subjects" component={Subjects} />
                 <Route exact path="/subject/:subjectId/tests" component={TestsBySubject} />
                 <Route exact path="/teacher/:teacherId/tests" component={TestsByTeacher} />
+                <Route exact path="/send-test" component={SendTest} />
             </Switch>
         </Router>
     );

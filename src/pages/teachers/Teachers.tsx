@@ -16,7 +16,7 @@ export default function Subjects() {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error!</div>;
 
-    const teachers = data[0]?.teachers;
+    const teachers = data?.teachers;
 
     return (
         <PageSetup>
