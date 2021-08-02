@@ -12,12 +12,12 @@ export default function Test(props: { key: number, test: ITest, byTeacher: boole
         <Container>
             <p onClick={() => setShowingPdf(!showingPdf)}>
                 {props.byTeacher ? `${test.name} da disciplina ${test.subject.name}` : `${test.name} do professor ${test.teacher.name}`}
+                <a href={test.pdf} target="_blank" rel="noreferrer">
+                    <IoOpenOutline />
+                </a>
             </p>
             {showingPdf &&
                 <div>
-                    <a href={test.pdf} target="_blank" rel="noreferrer">
-                        <IoOpenOutline />
-                    </a>
                     <object type="application/pdf"
                         data={test.pdf}
                         width="400"
@@ -42,23 +42,24 @@ const Container = styled.div`
         cursor: pointer;
         :hover{
             transform: scale(1.05);
-        }
-    }
 
-    div {
-        margin: 5px auto;
-        position: relative;
+
+        }
         a {
-            position: absolute;
-            left: 15px;
-            top: 15px;
-            *{
-                font-size: 28px;
-                color: #ffffff;
+            *{  
+                margin-left: 5px;
+                font-size: 22px;
+                color: black;
                 :hover{
                     transform: scale(1.05);
                 }
             }
         }
+        
     }
+
+    div {
+        margin: 5px auto;
+    }
+
 `;
