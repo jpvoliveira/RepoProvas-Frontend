@@ -28,4 +28,5 @@ const ButtonContainer = styled.button`
         transform: scale(1.05);
         color: greenyellow;
     }
+    margin: 8px 0;
 `
