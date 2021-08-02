@@ -1,6 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
-import apiBaseUrl from "../apiBaseUrl";
 import ITest from "../interfaces/ITest";
 
 export default function useGetTestsBySubject(id: number) {
@@ -10,7 +9,7 @@ export default function useGetTestsBySubject(id: number) {
 
     function fetchData() {
         setLoading(true);
-        axios.get(apiBaseUrl + "/tests/subject/" + id)
+        axios.get(process.env.REACT_APP_HOST + "/tests/subject/" + id)
             .then(onSuccess)
             .catch(onError);
     }

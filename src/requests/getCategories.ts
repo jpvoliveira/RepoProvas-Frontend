@@ -1,6 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
-import apiBaseUrl from "../apiBaseUrl";
 import ICategory from "../interfaces/ICategories";
 
 export default function useGetCategories() {
@@ -10,7 +9,7 @@ export default function useGetCategories() {
 
     function fetchData() {
         setLoading(true);
-        axios.get(apiBaseUrl + "/categories")
+        axios.get(process.env.REACT_APP_HOST + "/categories")
             .then(onSuccess)
             .catch(onError);
     }

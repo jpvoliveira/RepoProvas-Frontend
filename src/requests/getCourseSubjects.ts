@@ -1,6 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
-import apiBaseUrl from "../apiBaseUrl";
 import ICourseSubjects from "../interfaces/ICourseSubjects";
 
 export default function useGetCourseSubjects(id: number) {
@@ -10,7 +9,7 @@ export default function useGetCourseSubjects(id: number) {
 
     function fetchData() {
         setLoading(true);
-        axios.get(apiBaseUrl + "/courses/" + id + "/subjects")
+        axios.get(process.env.REACT_APP_HOST + "/courses/" + id + "/subjects")
             .then(onSuccess)
             .catch(onError);
     }

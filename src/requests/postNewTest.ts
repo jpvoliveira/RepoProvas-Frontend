@@ -1,6 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
-import apiBaseUrl from "../apiBaseUrl";
 import INewTest from "../interfaces/INewTest";
 
 export default function usePostNewTest() {
@@ -9,7 +8,7 @@ export default function usePostNewTest() {
 
     function sendTest(test: INewTest) {
         setLoading(true);
-        axios.post(apiBaseUrl + "/tests", test)
+        axios.post(process.env.REACT_APP_HOST + "/tests", test)
             .then(onSuccess)
             .catch(onError);
     }

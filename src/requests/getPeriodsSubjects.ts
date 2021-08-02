@@ -1,6 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
-import apiBaseUrl from "../apiBaseUrl";
 import IPeriodsSubjects from "../interfaces/IPeriodSubjects";
 
 export default function useGetPeriodsSubjets(id: number) {
@@ -10,7 +9,7 @@ export default function useGetPeriodsSubjets(id: number) {
 
     function fetchData() {
         setLoading(true);
-        axios.get(apiBaseUrl + "/periods")
+        axios.get(process.env.REACT_APP_HOST + "/periods")
             .then(onSuccess)
             .catch(onError);
     }
