@@ -11,6 +11,7 @@ import Subjects from "./pages/subjects/Subjects";
 import TestsBySubject from "./pages/testsBySubject/TestsBySubject";
 import TestsByTeacher from "./pages/testsByTeacher/TestsByTeacher";
 import SendTest from "./pages/sendTest/SendTest";
+import NewRegister from "./pages/newRegister/NewRegister";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                 <Route exact path="/subject/:subjectId/tests" component={TestsBySubject} />
                 <Route exact path="/teacher/:teacherId/tests" component={TestsByTeacher} />
                 <Route exact path="/send-test" component={SendTest} />
+                <Route exact path="/new" component={NewRegister} />
             </Switch>
         </Router>
     );

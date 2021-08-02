@@ -1,18 +1,21 @@
 import styled from "styled-components";
 
-export default function Select(data: { handleChange: React.ChangeEventHandler<HTMLSelectElement>, selectedOption: number | null, error: boolean, loading: boolean, options: { id: number, name: string }[] | null | undefined }) {
+export default function Select(data: { handleChange: React.ChangeEventHandler<HTMLSelectElement>, selectedOption: number | null | undefined, error: boolean, loading: boolean, options: { id: number, name: string }[] | null | undefined }) {
     const { options, loading, error, selectedOption, handleChange } = data;
 
     if (loading) return <div> Loading ... </div>;
     if (error) return <div> Falha ao carregar... </div>;
 
-    if (selectedOption === null) {
+    if (selectedOption === null || selectedOption === undefined) {
         return <div>Selecione uma opção</div>;
     }
 
+    if (!options) return <div> Loading ... </div>
+
+    const newOptions = [{ id: 0, name: "Selecione uma opção" }].concat(options);
     return (
         <SelectContainer name="form" form="form" value={selectedOption} onChange={handleChange}>
-            {options?.map((p: { id: number, name: string }) => <option key={p.id} value={p.id} >{p.name}</option>)}
+            {newOptions?.map((p: { id: number, name: string }) => <option key={p.id} value={p.id} >{p.name}</option>)}
         </SelectContainer>
     )
 }

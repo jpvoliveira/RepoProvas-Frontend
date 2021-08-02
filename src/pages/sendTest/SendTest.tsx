@@ -16,8 +16,8 @@ export default function SendTest() {
     const { loading, error, sendTest } = usePostNewTest();
     const [courseId, setCourseId] = useState<number>(1);
     const [categoryId, setCategoryId] = useState<number>(1);
-    const [teacherId, setTeacherId] = useState<number>(1);
-    const [subjectId, setSubjectId] = useState<number>(1);
+    const [teacherId, setTeacherId] = useState<number | undefined>(0);
+    const [subjectId, setSubjectId] = useState<number | undefined>(0);
 
     const fetchCourses = useGetCourses();
     const fetchCategories = useGetCategories();
@@ -25,16 +25,24 @@ export default function SendTest() {
     const fetchSubjects = useGetCourseSubjects(courseId);
 
     useEffect(() => {
-        fetchCourses.fetchData();
-        fetchCategories.fetchData();
         fetchTeachers.fetchData();
         fetchSubjects.fetchData();
-    }, [courseId]);
+        fetchCourses.fetchData();
+        fetchCategories.fetchData();
+    }, [courseId])
 
     function sendData(e: any) {
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData);
+        console.log({
+            name: String(data.name),
+            categoryId: Number(categoryId),
+            teacherId: Number(teacherId),
+            subjectId: Number(subjectId),
+            courseId: Number(courseId),
+            pdf: String(data.pdf)
+        })
         sendTest({
             name: String(data.name),
             categoryId: Number(categoryId),

@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Button(data: { to: string, text: string }) {
+
+    if (data.to === "#") {
+        return (
+            <ButtonContainer type="submit">
+                {data.text}
+            </ButtonContainer>
+        )
+    }
     return (
         <Link to={data.to}>
             <ButtonContainer type="submit">
