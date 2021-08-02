@@ -9,7 +9,7 @@ export default function SubjectOption(props: { key: number, data: ISubject }) {
 
     return (
         <Container>
-            <Button to={`/subject/${data.id}/tests`} text={data.name} />
+            <Button to={`/subject/${data.id}/tests`} text={`${data.name} com ${data.tests.length} prova(s)`} />
         </Container>
     )
 }
